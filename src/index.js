@@ -5,7 +5,10 @@ import { store } from "./helpers";
 
 import "./index.scss";
 
-import App from "./App";
+import { App } from "./App";
+
+import { configureFakeBackend } from "./helpers";
+configureFakeBackend();
 
 ReactDOM.render(
   <Provider store={store}>

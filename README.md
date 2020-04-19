@@ -9,10 +9,13 @@ In order for the weather API calls to work, you need to create a file named `.en
 
 In the file, add this environment variable: `REACT_APP_WEATHER_API_KEY=your_accu_weather_api_key`
 
+To create an API key, visit https://developer.accuweather.com/
+
 ## Features
 
 * Display a list of top cities with weather information (city name, weather icon and temperature)
 * Display a list of cities with weather information located around the user.
+* Fake Register/Login/Logout Flow
 
 ## Available Scripts
 

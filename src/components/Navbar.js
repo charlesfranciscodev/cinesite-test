@@ -1,24 +1,37 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { USER_ACTIONS } from "../actions";
 
 import "./Navbar.scss";
 
-function AuthButton(props) {
-  if (props.loggedIn) {
+function AuthButtons(props) {
+  if (props.user) {
     return (
-      <li className="nav-item">
-        <a onClick={props.logoutButtonClick} className="nav-link" id="logout">
-          <i className="fas fa-sign-out-alt"></i> Logout
-        </a>
-      </li>
+      <ul className="navbar-nav text-center">
+        <li className="nav-item">
+          <a onClick={props.logoutButtonClick} className="nav-link" id="logout">
+            <i className="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
     );
   } else {
     return (
-      <li className="nav-item">
-        <Link className="nav-link" to={"/login"}>
-          <i className="fas fa-sign-in-alt"></i> Login
-        </Link>
-      </li>
+      <ul className="navbar-nav text-center">
+        <li className="nav-item">
+          <Link className="nav-link" to={"/register"}>
+            <i className="fas fa-user-plus"></i> Register
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link" to={"/login"}>
+            <i className="fas fa-sign-in-alt"></i> Login
+          </Link>
+        </li>
+      </ul>
     );
   }
 }
@@ -38,14 +51,12 @@ class Navbar extends Component {
   }
 
   logoutButtonClick = () => {
-    console.log("logout button click");
-  }
-
-  loggedIn = () => {
-    return false;
+    const { dispatch } = this.props;
+    dispatch(USER_ACTIONS.logout());
   }
 
   render() {
+    let user = JSON.parse(localStorage.getItem("user"));
     let className = "navbar-collapse justify-content-between align-items-center w-100";
     if (this.state.collapse) {
       className += " collapse";
@@ -67,19 +78,25 @@ class Navbar extends Component {
             </li>
           </ul>
 
-          {this.loggedIn() &&
+          {user &&
             <div className="navbar-text d-block text-center">
-              Hello username
+              Hello {user["username"]}
             </div>
           }
 
-          <ul className="navbar-nav text-center">
-            <AuthButton loggedIn={this.loggedIn()} logoutButtonClick={this.logoutButtonClick} />
-          </ul>
+          <AuthButtons user={user} logoutButtonClick={this.logoutButtonClick} />
         </div>
       </nav>
     )
   }
 }
 
-export default Navbar;
+function mapStateToProps(state) {
+  const { loggedIn } = state["authentication"];
+  return {
+    loggedIn
+  };
+}
+
+const connectedNavBar = connect(mapStateToProps)(Navbar);
+export {connectedNavBar as Navbar};

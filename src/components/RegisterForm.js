@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import { USER_ACTIONS } from "../actions";
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +28,7 @@ class LoginForm extends Component {
     let { username, password } = this.state;
     const { dispatch } = this.props;
     if (username && password) {
-      dispatch(USER_ACTIONS.login(username, password));
+      dispatch(USER_ACTIONS.register({username, password}));
     }
   }
 
@@ -47,7 +48,8 @@ class LoginForm extends Component {
     return (
       <div className="container my-4">
         <form onSubmit={this.handleSubmit}>
-          <h2 className="text-center mb-4">Login Form</h2>
+          <h2 className="text-center mb-4">Register Form</h2>
+
           <div className="form-group row">
             <div className="input-group col-md-6 offset-md-3 col-lg-4 offset-lg-4">
               <input onChange={this.onChange} type="text" className={usernameClassName} value={username} id="username" name="username" placeholder="Username" />
@@ -57,7 +59,7 @@ class LoginForm extends Component {
                 </span>
               </div>
               <div className="invalid-feedback">
-                Please choose a username.
+                Please enter your username.
               </div>
             </div>
           </div>
@@ -71,7 +73,7 @@ class LoginForm extends Component {
                 </span>
               </div>
               <div className="invalid-feedback">
-                Please choose a password.
+                Please enter your password.
               </div>
             </div>
           </div>
@@ -79,7 +81,7 @@ class LoginForm extends Component {
           <div className="form-group row">
             <div className="input-group col-md-6 offset-md-3 col-lg-4 offset-lg-4">
               <button className="btn btn-lg btn-block btn-primary" type="submit">
-                <i className="fas fa-sign-in-alt"></i> Login
+                <i className="fas fa-user-plus"></i> Register
               </button>
             </div>
           </div>
@@ -90,11 +92,11 @@ class LoginForm extends Component {
 }
 
 function mapStateToProps(state) {
-  const { loggingIn } = state["authentication"];
+  const { registering } = state["authentication"];
   return {
-    loggingIn
+    registering
   };
 }
 
-const connectedLoginForm = connect(mapStateToProps)(LoginForm);
-export { connectedLoginForm as LoginForm};
+const connectedRegisterForm = connect(mapStateToProps)(RegisterForm);
+export { connectedRegisterForm as RegisterForm};
