@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+### Weather API
+In order for the weather API calls to work, you need to create a file named `.env.local` in the root directory.
+
+In the file, add this environment variable: `REACT_APP_WEATHER_API_KEY=your_accu_weather_api_key`
+
+## Features
+
+* Display a list of top cities with weather information (city name, weather icon and temperature)
+* Display a list of cities with weather information located around the user.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -75,4 +87,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 * [Font Awesome](https://fontawesome.com/)
 * [React + Redux - User Registration and Login Tutorial & Example](https://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example)
 * [Dockerizing a React App](https://mherman.org/blog/dockerizing-a-react-app/)
-* [Deploy React Application using Docker and Google Cloud Platform](https://hackernoon.com/deploy-react-application-using-docker-and-google-cloud-platform-4bc03f9ee1f)

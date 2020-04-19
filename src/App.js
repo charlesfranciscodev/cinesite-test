@@ -1,21 +1,20 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import CityList from "./components/CityList";
+import LoginForm from "./components/LoginForm";
 
 class App extends Component {
-  componentDidMount() {
-
-  }
-
   render() {
     return (
-      <div className="container">
-        <div className="jumbotron">
-          <h1 className="display-3">Hello React</h1>
-          <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <p className="lead">
-            <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-          </p>
+      <Router>
+        <div>
+          <Navbar />
+          <Route exact path="/" component={CityList} />
+          <Route path="/login" component={LoginForm}/>
         </div>
-      </div>
+      </Router>
     );
   }
 }
