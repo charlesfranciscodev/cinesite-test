@@ -9,6 +9,7 @@ import { Navbar } from "./components/Navbar";
 import CityList from "./components/CityList";
 import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
+import CityDetail from "./components/CityDetail";
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends Component {
           <Route exact path="/" component={CityList} />
           <Route path="/login" component={LoginForm}/>
           <Route path="/register" component={RegisterForm}/>
+          <Route path="/daily-forecast/:locationKey" component={CityDetail}/>
         </div>
       </Router>
     );

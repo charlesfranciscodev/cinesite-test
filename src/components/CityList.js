@@ -55,18 +55,18 @@ class CityList extends Component {
     return (
       <div className="container">
         <div className="row my-4">
-          <div className="col-6 text-center">
+          <div className="col-sm text-center">
             <h2>Weather Conditions</h2>
           </div>
-          <div className="col-6 d-flex align-items-center justify-content-center">
+          <div className="col-sm">
             <i onClick={this.locationButtonClick} className="fas fa-location-arrow fa-2x mx-2" id="locationIcon"></i>
-            <span className="badge badge-primary">Click Icon to Toggle Between Current Location and Top Cities</span>
+            <small>Click Icon to Toggle Between Current Location and Top Cities</small>
           </div>
         </div>
         
         {
           this.state["currentConditionsArray"].map(conditions => 
-            <CitySummary conditions={conditions} key={conditions["Key"]} />
+            <CitySummary conditions={conditions} key={conditions.Key} />
           )
         }
       </div>

@@ -47,3 +47,9 @@ export async function autocompleteSearchByLocation(searchQuery) {
   let response = await axios.get(url);
   return response.data;
 }
+
+export async function dailyForecasts(locationKey) {
+  let url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${process.env.REACT_APP_WEATHER_API_KEY}`;
+  let response = await axios.get(url);
+  return response.data["DailyForecasts"];
+}

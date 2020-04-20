@@ -80,7 +80,7 @@ class Navbar extends Component {
 
           {user &&
             <div className="navbar-text d-block text-center">
-              Hello {user["username"]}
+              Hello {user.username}
             </div>
           }
 
