@@ -16,6 +16,7 @@ To create an API key, visit https://developer.accuweather.com/
 * Display a list of top cities with weather information (city name, weather icon and temperature)
 * Display a list of cities with weather information located around the user.
 * Fake Register/Login/Logout Flow
+* City Detail View with Daily Forecast
 
 ## Available Scripts
 

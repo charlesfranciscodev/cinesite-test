@@ -64,11 +64,13 @@ class CityList extends Component {
           </div>
         </div>
         
-        {
-          this.state["currentConditionsArray"].map(conditions => 
-            <CitySummary conditions={conditions} key={conditions.Key} />
-          )
-        }
+        <div className="row mb-4">
+          {
+            this.state["currentConditionsArray"].map(conditions => 
+              <CitySummary conditions={conditions} key={conditions.Key} />
+            )
+          }
+        </div>
       </div>
     );
   }
