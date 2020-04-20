@@ -11,6 +11,8 @@ import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
 import CityDetail from "./components/CityDetail";
 
+import CitySearch from "./components/CitySearch";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,8 @@ class App extends Component {
       <Router history={history}>
         <div>
           <Navbar />
+
+          <CitySearch />
 
           <div className="container">
             {alert["message"] && 
