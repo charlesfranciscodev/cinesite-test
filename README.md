@@ -5,11 +5,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Setup
 
 ### Weather API
+
 In order for the weather API calls to work, you need to create a file named `.env.local` in the root directory.
 
 In the file, add this environment variable: `REACT_APP_WEATHER_API_KEY=your_accu_weather_api_key`
 
 To create an API key, visit https://developer.accuweather.com/
+
+### Docker
+
+#### Build the image(s) and run the container(s)
+
+```
+docker-compose build
+docker-compose up
+```
+
+The client should be acessible at [http://localhost:3000](http://localhost:3000).
 
 ## Features
 
