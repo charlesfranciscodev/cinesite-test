@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import CitySummary from "./CitySummary";
+import CitySearch from "./CitySearch";
 
 import { currentConditionsForTopCities, currentConditionsForNeighbors } from "../services";
 
@@ -54,6 +55,15 @@ class CityList extends Component {
   render() {
     return (
       <div className="container">
+        <div className="row my-4">
+          <div className="col-md-3 d-flex align-items-center justify-content-center">
+            <h3 className="mx-2">Search by city...</h3>
+          </div>
+          <div className="col-md-3 d-flex align-items-center justify-content-center">
+            <CitySearch />
+          </div>
+        </div>
+
         <div className="row my-4">
           <div className="col-sm text-center">
             <h2>Weather Conditions</h2>
