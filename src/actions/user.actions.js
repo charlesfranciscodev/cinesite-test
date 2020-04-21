@@ -19,7 +19,7 @@ function login(username, password) {
       history.push("/");
     })
     .catch(error => {
-      let [status, data] = error;
+      let data = error[1];
       dispatch(failure(data["message"]));
       dispatch(ALERT_ACTIONS.error(data["message"]));
     });
@@ -65,7 +65,7 @@ function register(user) {
       dispatch(ALERT_ACTIONS.success(data["message"]));
     })
     .catch(error => {
-      let [status, data] = error;
+      let data = error[1];
       dispatch(failure(data["message"]));
       dispatch(ALERT_ACTIONS.error(data["message"]));
     });
